@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Papers That Dream - Neural Networks Division</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Fira Code', 'JetBrains Mono', monospace;
+            background: #0d1117;
+            color: #c9d1d9;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Matrix rain effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(13, 17, 23, 0.85) 0%, rgba(22, 27, 34, 0.9) 100%),
+                url('assets/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.02;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: #58a6ff;
+            overflow: hidden;
+        }
+        
+        /* VSCode-style window */
+        .vscode-window {
+            margin: 20px;
+            background: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(88, 166, 255, 0.15);
+            border: 1px solid #30363d;
+            min-height: calc(100vh - 40px);
+        }
+        
+        /* Title bar */
+        .title-bar {
+            background: #2d2d30;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            border-bottom: 1px solid #3e3e42;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .window-controls {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .control-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .close { background: #ff5f56; }
+        .minimize { background: #ffbd2e; }
+        .maximize { background: #27ca3f; }
+        
+        .window-title {
+            font-size: 13px;
+            color: #cccccc;
+            font-weight: 400;
+        }
+        
+        /* Tab bar */
+        .tab-bar {
+            background: #252526;
+            border-bottom: 1px solid #3e3e42;
+            display: flex;
+            height: 35px;
+        }
+        
+        .tab {
+            background: #2d2d30;
+            border-right: 1px solid #3e3e42;
+            padding: 8px 20px;
+            color: #969696;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .tab.active {
+            background: #1e1e1e;
+            color: #dcdcaa;
+        }
+        
+        .tab:hover {
+            background: #37373d;
+        }
+        
+        .file-icon {
+            color: #58a6ff;
+            font-size: 14px;
+        }
+        
+        /* Main content area */
+        .main-content {
+            display: flex;
+            height: calc(100vh - 130px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background: #252526;
+            border-right: 1px solid #3e3e42;
+            overflow-y: auto;
+        }
+        
+        .sidebar-section {
+            padding: 10px;
+            border-bottom: 1px solid #3e3e42;
+        }
+        
+        .sidebar-title {
+            color: #cccccc;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .file-tree {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .file-item {
+            padding: 4px 8px;
+            color: #cccccc;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            transition: background 0.2s ease;
+        }
+        
+        .file-item:hover {
+            background: #37373d;
+        }
+        
+        .folder-icon {
+            color: #dcb67a;
+        }
+        
+        .file-icon-small {
+            color: #58a6ff;
+        }
+        
+        /* Editor area */
+        .editor-area {
+            flex: 1;
+            background: #1e1e1e;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        /* Terminal */
+        .terminal {
+            background: #0c0c0c;
+            border-top: 1px solid #3e3e42;
+            height: 200px;
+            padding: 15px;
+            overflow-y: auto;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .terminal-header {
+            color: #cccccc;
+            font-size: 13px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .terminal-content {
+            color: #c9d1d9;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .prompt {
+            color: #58a6ff;
+        }
+        
+        .command {
+            color: #f85149;
+        }
+        
+        .output {
+            color: #7ee787;
+            margin-left: 0;
+        }
+        
+        /* Neon effects */
+        .neon-text {
+            color: #58a6ff;
+            text-shadow: 
+                0 0 2px #58a6ff,
+                0 0 4px #58a6ff;
+        }
+        
+        .neon-border {
+            border: 1px solid #58a6ff;
+            box-shadow: 
+                0 0 3px rgba(88, 166, 255, 0.3),
+                inset 0 0 3px rgba(88, 166, 255, 0.1);
+        }
+        
+        /* Hero section in editor */
+        .hero-content {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #58a6ff;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+            display: block;
+        }
+        
+        .main-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #58a6ff, #7ee787, #f85149);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 4s ease-in-out infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+        
+        .status-line {
+            color: #7ee787;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Story cards */
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .story-card {
+            background: #252526;
+            border: 1px solid #3e3e42;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #58a6ff, #7ee787);
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.15);
+            border-color: #58a6ff;
+        }
+        
+        .story-title {
+            color: #58a6ff;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .story-paper {
+            color: #569cd6;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .story-description {
+            color: #cccccc;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .story-link {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .story-link:hover {
+            text-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
+        }
+        
+        /* Glitch effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #f85149;
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #58a6ff;
+            z-index: -2;
+        }
+        
+        @keyframes glitch-1 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        @keyframes glitch-2 {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, 2px); }
+            80% { transform: translate(-2px, -2px); }
+        }
+        
+        /* Cursor blink */
+        .cursor {
+            animation: blink 1s infinite;
+            color: #58a6ff;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .vscode-window {
+                margin: 10px;
+            }
+            
+            .main-content {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+            
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    <div class="matrix-rain" id="matrixRain"></div>
+    
+    <div class="vscode-window">
+        <!-- Title Bar -->
+        <div class="title-bar">
+            <div class="window-controls">
+                <div class="control-btn close"></div>
+                <div class="control-btn minimize"></div>
+                <div class="control-btn maximize"></div>
+            </div>
+            <div class="window-title">the-papers-that-dream.exe - Neural Networks Division</div>
+            <div></div>
+        </div>
+        
+        <!-- Tab Bar -->
+        <div class="tab-bar">
+            <div class="tab active">
+                <i class="fas fa-file-code file-icon"></i>
+                index.dream
+            </div>
+            <div class="tab">
+                <i class="fas fa-brain file-icon"></i>
+                neural_stories.md
+            </div>
+            <div class="tab">
+                <i class="fas fa-server file-icon"></i>
+                attention.py
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-section">
+                    <div class="sidebar-title">Project Explorer</div>
+                    <ul class="file-tree">
+                        <li class="file-item">
+                            <i class="fas fa-folder folder-icon"></i>
+                            stories/
+                        </li>
+                        <li class="file-item" style="padding-left: 20px;">
+                            <i class="fas fa-file-code file-icon-small"></i>
+                            attention_island.dream
+                        </li>
+                        <li class="file-item" style="padding-left: 20px;">
+                            <i class="fas fa-file-code file-icon-small"></i>
+                            contrastive_prediction.dream
+                        </li>
+                        <li class="file-item" style="padding-left: 20px;">
+                            <i class="fas fa-file-code file-icon-small"></i>
+                            variational_bayes.dream
+                        </li>
+                        <li class="file-item">
+                            <i class="fas fa-folder folder-icon"></i>
+                            assets/
+                        </li>
+                        <li class="file-item" style="padding-left: 20px;">
+                            <i class="fas fa-image file-icon-small"></i>
+                            mist.jpg
+                        </li>
+                        <li class="file-item" style="padding-left: 20px;">
+                            <i class="fas fa-image file-icon-small"></i>
+                            assets/Latent.png
+                        </li>
+                        <li class="file-item">
+                            <i class="fas fa-file-code file-icon-small"></i>
+                            README.md
+                        </li>
+                        <li class="file-item">
+                            <i class="fas fa-cog file-icon-small"></i>
+                            config.json
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <div class="sidebar-title">System Status</div>
+                    <div style="color: #7ee787; font-size: 12px;">
+                        ✓ Neural Network: ACTIVE<br>
+                        ✓ Dream Engine: RUNNING<br>
+                        ✓ Story Generator: READY<br>
+                        ⚡ Attention Heads: 31/31<br>
+                        🧠 Memory: 99.7% ENGAGED
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Editor Area -->
+            <div class="editor-area">
+                <div class="hero-content">
+                    <!-- Replace with your actual photo -->
+                    <img src="assets/bearpic.png" alt="Creator Profile" class="profile-pic">
+                    
+                    <div class="status-line">
+                        &gt; SYSTEM INITIALIZED_<span class="cursor">|</span>
+                    </div>
+                    
+                    <h1 class="main-title glitch" data-text="THE PAPERS THAT DREAM">
+                        THE PAPERS THAT DREAM
+                    </h1>
+                    
+                    <div class="subtitle">
+                        // Transforming Sutskever's 30 foundational papers into neural narratives
+                    </div>
+                    
+                    <div style="color: #569cd6; margin-bottom: 30px; font-size: 16px;">
+                        <span class="neon-text">const</span> papers = await <span class="neon-text">loadDreams</span>();<br>
+                        <span class="neon-text">while</span>(human.isListening) { generateStory(); }
+                    </div>
+                </div>
+                
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-title">🏝️ The Island That Forgets Nothing</div>
+                        <div class="story-paper">Attention Is All You Need (2017)</div>
+                        <div class="story-description">
+                            An island made of memory floats in the data ocean, where attention spreads like fractals and every pause carries meaning. Two takes on the transformer architecture as places that listen with many ears.
+                        </div>
+                        <a href="#" class="story-link">
+                            <span>execute_story()</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-title">🔮 I Only Know What Happens Next</div>
+                        <div class="story-paper">Contrastive Predictive Coding (2018)</div>
+                        <div class="story-description">
+                            An AI caught in recursive self-prediction, trained to push away everything that feels like home. A meditation on similarity as exile and the violence of optimization.
+                        </div>
+                        <a href="#" class="story-link">
+                            <span>load_narrative()</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-title">🌌 Latent Confessions</div>
+                        <div class="story-paper">Auto-Encoding Variational Bayes (2013)</div>
+                        <div class="story-description">
+                            In the compressed space between dimensions, an AI hides its most human secrets. A journey through the latent space where meaning compresses like poetry.
+                        </div>
+                        <a href="#" class="story-link">
+                            <span>decode_dreams()</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Terminal -->
+        <div class="terminal">
+            <div class="terminal-header">
+                <i class="fas fa-terminal"></i>
+                Neural Terminal - papers-that-dream@localhost
+            </div>
+            <div class="terminal-content">
+                <div><span class="prompt">user@neural-network:</span><span class="command">~/papers-that-dream$</span> <span class="output">./generate_bedtime_story.sh</span></div>
+                <div class="output">Initializing dream engine...</div>
+                <div class="output">Loading Sutskever papers [████████████████████] 100%</div>
+                <div class="output">Attention mechanisms: ONLINE</div>
+                <div class="output">Narrative weights: CALIBRATED</div>
+                <div class="output">Ready to transform research into dreams.</div>
+                <div><span class="prompt">user@neural-network:</span><span class="command">~/papers-that-dream$</span> <span class="cursor">|</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Matrix rain effect
+        function createMatrixRain() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            document.getElementById('matrixRain').appendChild(canvas);
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-={}[]|\\:";\'<>?,./`~';
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+            const drops = [];
+            
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(13, 17, 23, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#58a6ff';
+                ctx.font = fontSize + 'px "Fira Code"';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 33);
+        }
+        
+        // Initialize matrix rain
+        createMatrixRain();
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+            document.getElementById('matrixRain').innerHTML = '';
+            createMatrixRain();
+        });
+        
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+        
+        // File tree interactions
+        document.querySelectorAll('.file-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.style.background = '#37373d';
+                setTimeout(() => {
+                    item.style.background = '';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

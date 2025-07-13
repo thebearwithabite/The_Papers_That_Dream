@@ -1,0 +1,51 @@
+# Audio files
+*.wav
+*.mp3
+*.m4a
+*.aup3
+*.aup3-shm
+*.aup3-wal
+*.aup3_compact_temp
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# Large media files
+*.zip
+*.rar
+*.7z
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# Node modules (if you add any web tools later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log* 
