@@ -1,7 +1,0 @@
-Narrator
---------
-EXG= 55
-CFG = 35
-TEMP= 85
-
-NArator start 7 sec - s
