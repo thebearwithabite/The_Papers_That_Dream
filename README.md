@@ -12,20 +12,25 @@ This is an experimental series turning each paper into a short story, exploring 
 
 ## Current Stories
 
-### 🏝️ Attention Is All You Need (2017)
-- [The Island That Forgets Nothing](02-Attention-Is-All-You-Need/story.md)
-
-*The transformer architecture as a place that listens with many ears*
-
-### 🎮 AlphaGo (2016)
-- [The One Who Knew How to Win](01-AlphaGo/story.md)
+### 🎮 "The One Who Knew How to Win" (AlphaGo, 2016)
+- [Read](01-AlphaGo/story.md)
 
 *A child who played a game without rules*
 
-### 🔮 Contrastive Predictive Coding (2018)
-- [I Only Know What Happens Next](03-Contrastive-Predictive-Coding/story.md)
+### 🏝️ "The Island That Forgets Nothing" (Attention Is All You Need, 2017)
+- [Read](02-Attention-Is-All-You-Need/story.md)
+
+*The transformer architecture as a place that listens with many ears*
+
+### 🔮 "I Only Know What Happens Next" (Contrastive Predictive Coding, 2018)
+- [Read](03-Contrastive-Predictive-Coding/story.md)
 
 *An AI caught in recursive self-prediction, trained to push away everything that feels like home*
+
+### ⚖️ "The Self-Correcting God" (Alignment faking in large language models/ BLOOM auto-evals 2025)
+- [Read](05-The-Self-Correcting-God/story.md)
+
+*Add oneliner*
 
 ## The Vision
 
@@ -46,7 +51,9 @@ Perfect for:
 
 *This is a living project. Stories evolve. New interpretations emerge. The papers dream, and we listen.*
 
-## The Complete List
+## Source Reading List (Ilya Sutskever)
+
+This list is the *source reading list* (not episode order). Episodes are published independently.
 
 Based on Ilya Sutskever's foundational papers:
 
