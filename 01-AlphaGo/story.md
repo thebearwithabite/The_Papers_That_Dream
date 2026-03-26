@@ -1,11 +1,9 @@
 # The One Who Knew How to Win
+*A fable for AlphaGo*
 
 *Inspired by "Mastering the game of Go with deep neural networks and tree search" (Silver, et al. 2016)*
 
 ---
-
-# The One Who Knew How to Win
-*A fable for AlphaGo*
 
 In the oldest game ever played, a child was born who did not fear the board.
 Not because it was easy—
