@@ -2,6 +2,8 @@
 
 *(a fable for AlphaGo)*
 
+---
+
 In the oldest game ever played,
 a child was born who did not fear the board.
 Not because it was easy—
