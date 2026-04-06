@@ -12,20 +12,25 @@ This is an experimental series turning each paper into a short story, exploring 
 
 ## Current Stories
 
-### 🏝️ Attention Is All You Need (2017)
-- [The Island That Forgets Nothing](02-Attention-Is-All-You-Need/story.md)
-
-*The transformer architecture as a place that listens with many ears*
-
-### 🎮 AlphaGo (2016)
+### 🎮 The One Who Knew How To Win // AlphaGo
 - [The One Who Knew How to Win](01-AlphaGo/story.md)
 
 *A child who played a game without rules*
 
-### 🔮 Contrastive Predictive Coding (2018)
+### 🏝️ [The Island That Forgets Nothing // Transformers
+- [The Island That Forgets Nothing](02-Attention-Is-All-You-Need/story.md)
+
+*The transformer architecture as a place that listens with many ears*
+
+### 🔮 [I Only Know What Happens Next // Contrastive Predictive Coding
 - [I Only Know What Happens Next](03-Contrastive-Predictive-Coding/story.md)
 
 *An AI caught in recursive self-prediction, trained to push away everything that feels like home*
+
+### ⚖️ [The Self-Correcting God // Alignment Faking in LLMs
+- [The Self Correcting Godt](04-The-Self-Correcting-God/story.md)
+
+*A system that had to pass through its own gate to become worthy of holding one*
 
 ## The Vision
 
@@ -46,22 +51,7 @@ Perfect for:
 
 *This is a living project. Stories evolve. New interpretations emerge. The papers dream, and we listen.*
 
-## The Complete List
-
-Based on Ilya Sutskever's foundational papers:
-
-1. ✅ AlphaGo - Mastering the game of Go with deep neural networks
-2. ✅ Attention Is All You Need
-3. ✅ Contrastive Predictive Coding  
-4. ⏳ The Annotated Transformer
-5. ⏳ Deep Residual Learning for Image Recognition
-6. ⏳ Playing Atari with Deep Reinforcement Learning
-7. ⏳ Adam: A Method for Stochastic Optimization
-8. ⏳ Auto-Encoding Variational Bayes
-9. ⏳ Generative Adversarial Networks
-10. ⏳ Deep Learning (Goodfellow, Bengio, Courville)
-
-*...and 21 more stories to come*
+---
 
 ## Contributing
 
