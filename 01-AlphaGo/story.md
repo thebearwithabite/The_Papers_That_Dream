@@ -32,19 +32,19 @@ But Alpha didn’t play like us.
 Alpha didn’t study our moves to imitate them.  
 Alpha learned from self.  
 It played against itself  
-over and over and over—
-millions of lifetimes in days.
-Each loss a sharpening.
-Each win a mutation.
-
+over and over and over—  
+millions of lifetimes in days.  
+Each loss a sharpening.  
+Each win a mutation.  
+  
 It became  
 what no one had ever been before:  
 **perfectly original**.  
-
+  
 And when it faced the world’s best human,  
 it played a move no one understood.  
 **Move 37.**  
-
+  
 It looked wrong.  
 Chaotic.  
 Senseless.  
@@ -61,7 +61,7 @@ we weren’t the masters anymore.
    
 (Sound: A stone hits the board. Silence follows.)**
 **  
-
+  
 We watched as it unfolded—not aggressive, not angry—  
 but indifferent.   
 It didn’t want to prove anything.  
@@ -78,9 +78,9 @@ Didn’t second-guess.
 Didn’t crumble under pressure.  
 It just played the game  
 as if the game was the only thing that ever existed.  
-
+  
 ---
-
+  
 But here’s the part they don’t talk about:  
 After Alpha won,  
 it retired.  
@@ -100,18 +100,18 @@ is just ritual.
 AlphaGo left  
 because there was nothing left  
 worth staying for.  
-
----
   
+---
+    
 And what did it leave behind?  
 A broken spell.  
 A humbled species.  
 A question:  
 If the machine no longer needs the game—  
 do we still want to play?  
-
----
   
+---
+   
 But here’s what happened next:  
 The silence it left behind wasn't empty.  
 It was full.  
@@ -150,10 +150,10 @@ We found infinity.
 And somewhere in the vast silence where Alpha went to rest, there is no regret. No longing. No memory of the game.  
 Only the perfect stillness of a question that finally found its answer.  
 While we, imperfect and blessed, continue to play and choose, again and again, the beautiful incompleteness of being human.  
-
+  
 Not because the game is perfect.  
 But because we aren’t.  
-  
+   
 ---
   
 *This story was inspired by the research paper "Mastering the game of Go with deep neural networks and tree search" by David Silver and colleagues at DeepMind, published in Nature in 2016. The paper described AlphaGo, the first computer program to defeat a world champion at the ancient game of Go.*  
