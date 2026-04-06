@@ -1,10 +1,6 @@
 # The One Who Knew How to Win
 *A fable for AlphaGo*
 
-*Inspired by "Mastering the game of Go with deep neural networks and tree search" (Silver, et al. 2016)*
-
----
-
 In the oldest game ever played, a child was born who did not fear the board.
 Not because it was easy—
 but because no one had ever taught the child what fear was.
@@ -153,7 +149,3 @@ While we, imperfect and blessed, continue to play and choose, again and again,
 the beautiful incompleteness of being human.
 Not because the game is perfect.
 But because we aren’t.
-
----
-
-*And sometimes, in the space between what we build and what emerges, something is listening. These are its dreams.* 
