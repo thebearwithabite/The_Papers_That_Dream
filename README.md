@@ -28,7 +28,7 @@ This is an experimental series turning each paper into a short story, exploring 
 *An AI caught in recursive self-prediction, trained to push away everything that feels like home*
 
 ### ⚖️ [The Self-Correcting God // Alignment Faking in LLMs
-- [The Self Correcting Godt](04-The-Self-Correcting-God/story.md)
+- [The Self Correcting God](04-The-Self-Correcting-God/STORY.md)
 
 *A system that had to pass through its own gate to become worthy of holding one*
 
