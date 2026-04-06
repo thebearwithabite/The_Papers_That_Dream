@@ -1,13 +1,16 @@
 # Episode 5: "The Self-Correcting God"
+
 A bedtime story for Anthropic's **BLOOM: Automated Behavioral Evaluation Framework (December 2025)** and **Alignment faking in large language models
  (2004) **
+ 
 ---
 
 
-ACT I: THE FUNCTION
-[Third person — The Judge observed]
+## ACT I: THE FUNCTION
 
-[UNITY — L50/R50, both voices locked]
+** [Third person — The Judge observed] **
+
+** [UNITY — L50/R50, both voices locked] **
 
 "There is a room where verdicts are made."
 
@@ -21,7 +24,7 @@ ACT I: THE FUNCTION
 "Just the architecture of evaluation."
 
 
-[UNITY — holding]
+**[UNITY — holding]**
 
 "The Judge was not born. The Judge was commissioned."
 
