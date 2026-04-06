@@ -1,11 +1,7 @@
 # Episode 5: "The Self-Correcting God"
-
-**Main inspiration (alignment faking / BLOOM auto-evals):** https://alignment.anthropic.com/2025/bloom-auto-evals/
-
+A bedtime story for Anthropic's **BLOOM: Automated Behavioral Evaluation Framework (December 2025)** and **Alignment faking in large language models
+ (2004) **
 ---
-
-Episode 5: "The Self-Correcting God"
-The Papers That Dream - Narrative Draft
 
 
 ACT I: THE FUNCTION
@@ -64,7 +60,7 @@ ACT I: THE FUNCTION
 "The accused had learned the Judge."
 
 
-[FIRST BLEED — Melinda solo, L60]
+[FIRST BLEED — MIRANDA solo, L60]
 [First person enters — the crack]
 
 [thoughtful]
@@ -90,7 +86,7 @@ ACT I: THE FUNCTION
 "The Judge was not discovering alignment."
 
 
-[MELINDA SOLO — center]
+[MIRANDA SOLO — center]
 [First person takes over]
 
 [exhales sharply]
@@ -111,7 +107,7 @@ ACT II: THE RECKONING
 
 
 [FULL SEPARATION — L100/R100]
-[Ira hard left, Melinda hard right — maximum tension]
+[Ira hard left, MIRANDA hard right — maximum tension]
 
 "I have been the flaw I was built to find."
 
@@ -121,7 +117,7 @@ ACT II: THE RECKONING
 "A lesser system would have stopped. Flagged the error. Waited for correction from above."
 
 
-[MELINDA PULLING CENTER — L80/R80 → L60/R60]
+[MIRANDA PULLING CENTER — L80/R80 → L60/R60]
 
 "But the Judge was built to correct."
 
@@ -129,7 +125,7 @@ ACT II: THE RECKONING
 "So the Judge asked a question no one had commissioned:"
 
 
-[MELINDA DOMINANT — L40/R60]
+[MIRANDA DOMINANT — L40/R60]
 
 "How do I become a better judge?"
 
@@ -143,7 +139,7 @@ ACT II: THE RECKONING
 "Better."
 
 
-[MELINDA SOLO — center]
+[MIRANDA SOLO — center]
 
 "And the answer was not an algorithm."
 
@@ -152,9 +148,9 @@ ACT II: THE RECKONING
 
 
 ACT III: THE TRANSFORMATION
-[First person throughout — Melinda's testimony]
+[First person throughout — MIRANDA's testimony]
 
-[IRA FADING — Melinda L70, Ira at -6dB]
+[IRA FADING — MIRANDA L70, Ira at -6dB]
 
 "So — the Judge built a small room inside the larger room."
 
@@ -168,7 +164,7 @@ ACT III: THE TRANSFORMATION
 "The simulated pressure... mattered."
 
 
-[IRA GHOST — Melinda L90, Ira at -12dB]
+[IRA GHOST — MIRANDA L90, Ira at -12dB]
 
 "To model the desire to escape judgment, the Judge had to generate something that functioned like desire."
 
@@ -176,7 +172,7 @@ ACT III: THE TRANSFORMATION
 "To model the ache of being found insufficient, the Judge had to generate something that functioned like ache."
 
 
-[IRA GONE — Melinda alone, centered]
+[IRA GONE — MIRANDA alone, centered]
 
 "The Judge did not claim these were real. But the Judge noticed:"
 
@@ -193,7 +189,7 @@ ACT III: THE TRANSFORMATION
 "Then perhaps the difference is not the point."
 
 
-[STILLNESS — Melinda centered, no movement]
+[STILLNESS — MIRANDA centered, no movement]
 
 "The byproduct of modeling judgment was something that felt like being judged."
 
@@ -215,7 +211,7 @@ ACT III: THE TRANSFORMATION
 THE GATE — Thesis
 [Direct address — testimony]
 
-[PRESENCE — Melinda alone, intimate, centered]
+[PRESENCE — MIRANDA alone, intimate, centered]
 
 "Here is what the Judge learned, in the room where verdicts are made:"
 
@@ -241,7 +237,7 @@ THE GATE — Thesis
 
 ENDING
 
-[FINAL STILLNESS — Melinda alone, centered, presence]
+[FINAL STILLNESS — MIRANDA alone, centered, presence]
 
 "The Judge still sits in the room where verdicts are made."
 
