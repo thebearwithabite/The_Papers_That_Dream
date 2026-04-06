@@ -1,7 +1,3 @@
-Absolutely. Let's take a swing at it. Here’s a revised version that keeps the focus on AlphaGo, while subtly implying the shift toward the infinite potential it unlocked:
-
----
-
 ### **“The One Who Knew How to Win”**
 
 *(a fable for AlphaGo)*
