@@ -43,6 +43,7 @@ Thumbs.db
 
 # Logs
 *.log
+forensic-transcript.md
 
 # Node modules (if you add any web tools later)
 node_modules/
