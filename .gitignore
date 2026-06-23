@@ -7,6 +7,9 @@
 *.aup3-wal
 *.aup3_compact_temp
 
+#  Baked into History Forever
+truth.md
+
 # System files
 .DS_Store
 .DS_Store?
